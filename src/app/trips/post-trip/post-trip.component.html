@@ -1,0 +1,35 @@
+<div class="container">
+    <h2>Add Trip</h2>
+    <form [formGroup]="tripForm" (ngSubmit)="addTrip()">
+        <mat-form-field class="form-field col-md-12" appearance="outline">
+            <mat-label for="cityFld" class="form-label">City</mat-label>
+            <input id="cityFld" matInput type="text" formControlName="city" required placeholder="City" />
+            <mat-error *ngIf="tripForm.get('city')?.hasError('required')">
+                City is required.
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field col-md-12 file-upload-container" appearance="outline">
+            <mat-icon>attach_file</mat-icon>
+            <mat-label for="fileFld" class="form-label file-upload-label">Select a File</mat-label>
+            <input id="fileFld" matInput type="file" formControlName="file" required placeholder="Select a File"
+                (change)="onFileSelected($event)" />
+            
+        </mat-form-field>
+
+        <mat-form-field class="form-field col-md-12" appearance="outline">
+            <mat-label for="destinationFld" class="form-label">Select a Destination</mat-label>
+            <mat-select id="destinationFld" name="destinationFld" formControlName="destinationFld">
+                <mat-option *ngFor="let dest of listOfDestinations" [value]="dest.id">
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="tripForm.get('destinationFld')?.hasError('required')">
+                City is required.
+            </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="tripForm.invalid">
+            Save
+        </button>
+    </form>
+</div>

@@ -1,0 +1,39 @@
+<div class="text-center align-items-center p-5 container">
+    <mat-card>
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp" class="w-100"
+            style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;" alt="Sample photo">
+        <div class="h3 my-4">Login</div>
+        <mat-card-content>
+            <form [formGroup]="loginForm">                
+                <mat-form-field class="col-md-12" appearance="outline">
+                    <mat-icon matPrefix>email</mat-icon>
+                    <mat-label for="emailFld" class="form-label">Email</mat-label>
+                    <input id="emailFld" matInput type="text" formControlName="email" required placeholder="Email" />
+                    <mat-error *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                        Please enter a valid email address.
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="col-md-12" appearance="outline">
+                    <mat-icon matPrefix>lock_outline</mat-icon>
+                    <mat-label class="form-label">Password</mat-label>
+                    <input matInput type="{{ hidePassword ? 'password' : 'text'}}" formControlName="password" required
+                        placeholder="Password" />
+                    <button mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+                        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                        Please enter a valid password address.
+                    </mat-error>
+                </mat-form-field>
+                <button block="true" class="my-4 col-md-12" mat-raised-button color="primary" type="submit"
+                    [disabled]="loginForm.invalid" (click)="onSubmit()">
+                    Log In
+                </button>
+            </form>
+        </mat-card-content>
+
+        <mat-card-actions>
+            Don't have an account?  <button mat-button color="primary" routerLink="/register"> Register</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
