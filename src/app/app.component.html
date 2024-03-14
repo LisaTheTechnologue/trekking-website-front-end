@@ -1,10 +1,10 @@
 <div *ngIf="!isMemberLoggedIn && !isAdminLoggedIn">
   <mat-toolbar color="primary" class="navbar">
-    <span class="navbar-brand">Tripify</span>
+    <span class="navbar-brand" routerLink="/home">Tripify</span>
     <span class="spacer"></span>
     <button mat-button routerLink="/trips" routerLinkActive="active">Trips</button>
+    <button mat-button routerLink="/posts" routerLinkActive="active">Community</button>
     <button mat-button routerLink="/about" routerLinkActive="active">About</button>
-    <button mat-button routerLink="/community" routerLinkActive="active">Community</button>
     <button mat-button routerLink="/register" routerLinkActive="active">Register</button>
     <button mat-button routerLink="/login" routerLinkActive="active">Login</button>
   </mat-toolbar>
@@ -14,7 +14,8 @@
     <span class="navbar-brand">Tripify</span>
     <span class="spacer"></span>
     <button mat-button routerLink="/admin/destination" routerLinkActive="active">Destinations</button>
-    <button mat-button routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</button>
+    <button mat-button routerLink="/admin/trips" routerLinkActive="active">Trips</button>
+    <button mat-button routerLink="/admin/posts" routerLinkActive="active">Community</button>
     <button mat-button routerLink="/admin/users" routerLinkActive="active">Users</button>
     <button mat-button routerLinkActive="active" (click)="logout()">Logout</button>
   </mat-toolbar>
@@ -23,10 +24,11 @@
   <mat-toolbar color="primary" class="navbar">
     <span class="navbar-brand">Tripify</span>
     <span class="spacer"></span>
-    <button mat-button routerLink="/member/trips" routerLinkActive="active">Trips</button>
+    <button mat-button routerLink="/trips" routerLinkActive="active">Trips</button>
+    <button mat-button routerLink="/posts" routerLinkActive="active">Community</button>
+    <button mat-button routerLink="/member/trips" routerLinkActive="active">Trips - create</button>
+    <button mat-button routerLink="/member/posts" routerLinkActive="active">Community - create</button>
     <button mat-button routerLink="/about" routerLinkActive="active">About</button>
-    <button mat-button routerLink="/community" routerLinkActive="active">Community</button>
-    <button mat-button routerLink="/member/dashboard" routerLinkActive="active">Dashboard</button>
     <button mat-button routerLinkActive="active" (click)="logout()">Logout</button>
   </mat-toolbar>
 </div>
